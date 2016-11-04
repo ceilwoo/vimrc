@@ -1,9 +1,14 @@
 "--------------------------------------------------------------------------------
-" Simple Vimrc v1.2
+" Simple Vimrc 
 " by ceilwoo@gmail.com
 "--------------------------------------------------------------------------------
 " 适用于命令行vim，gvim，windows，mac os
+" v1.2 20161026 fix to vim8.0
+" v1.2 20151010
 
+"### develop mark
+"update .vimrc   :so %
+":so $MYVIMRC
 
 "--------------------------------------------------------------------------------
 " General
@@ -23,7 +28,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap ,w :w!<cr>
 
 " hightlighting search result
 set hlsearch 
@@ -61,6 +66,8 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/terryma/vim-multiple-cursors'
 Plugin 'https://github.com/altercation/vim-colors-solarized.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
+Plugin 'https://github.com/Valloric/YouCompleteMe.git'
+Plugin 'https://github.com/OmniSharp/omnisharp-vim.git'
 Plugin 'https://github.com/majutsushi/tagbar.git'
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
@@ -183,7 +190,6 @@ endif
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 " Quickly open a buffer for scripbble
 map <leader>q :e ~/buffer<cr>
-
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
@@ -255,7 +261,8 @@ endfunction
 "--------------------------------------------------------------------------------
 " Plugin Setting 
 "--------------------------------------------------------------------------------
-cnoremap <C-n> :NERDTreeToggle<cr>
+"cnoremap <C-n> :NERDTreeToggle<cr>
+nmap <F7> :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "exit if only nerdtree window
 let g:NERDTreeChDirMode=2 "show current folder
 
